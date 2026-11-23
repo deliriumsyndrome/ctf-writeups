@@ -64,3 +64,17 @@ http://0177.0.0.1:{local_port}/img_viewr
 ```
 http://0x7f.0x0.0x0.0x1:{local_port}/img_viewr
 ```
+
+#### 포트 찾기
+```python
+local_host = "127.0.0.1"
+local_port = random.randint(1500, 1800)
+local_server = http.server.HTTPServer(
+    (local_host, local_port), http.server.SimpleHTTPRequestHandler
+)
+print(local_port)
+```
+`local_port`는  1500~1800 사이의 랜덤한 값으로 설정되기 때문에 해당 포트 값을 찾은 후 flag를 획득하면 될것으로 보임.
+
+코드 찾은 후 http://vcap.me:{local_port}/flag.txt 로 진입하면 flag 값을 알 수 있음
+
